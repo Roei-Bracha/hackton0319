@@ -12,7 +12,7 @@ type Props = StateProps // & DispatchProps & OwnProps
 
 function AppNavBar(props:Props){
     return (
-        <AppBar className={"AppNavBar"}>
+        <AppBar style={{position:"relative"}} className={"AppNavBar"}>
             <Toolbar className={"Toolbar"}>
                 <Typography variant="h6" color="inherit">
                 תלמור

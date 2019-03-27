@@ -14,7 +14,11 @@ import Teal from '@material-ui/core/colors/teal';
 import Purple from '@material-ui/core/colors/purple';
 import JssProvider from 'react-jss/lib/JssProvider';
 
+<<<<<<< HEAD
 import Home from './Components/Home/Home.jsx'
+=======
+import Profile from './Components/Profile/Profile';
+>>>>>>> master
 
 const store = configureStore()
 class App extends Component {
@@ -41,7 +45,7 @@ class App extends Component {
             </div>
             <div className='body'>
               <div>
-              <Route path='/' component={Home}></Route>
+              <Route path='/' component={Profile}></Route>
               </div>
               <BottomBar/>
             </div>
