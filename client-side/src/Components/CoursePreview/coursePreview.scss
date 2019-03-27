@@ -1,6 +1,7 @@
 .coursePaper {
     display: flex;
-    width:80%;
+    flex-direction: column;
+    width:90%;
     .coursePreview {
         display: flex;
         flex-direction: column;
@@ -16,11 +17,30 @@
         }
         .row {
             display: flex;
+            z-index:1;
         }
         .courseHeader {
             display: flex;
             justify-content: space-between;
-        }
+            align-items: center;
+                justify-content: center;
+            .coursePhotoWrap {
+                width:90%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height:8vh;
+                .coursePhoto {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+                
+                .openIcon {
+                    width:10%;
+                    height: 100%;
+                }
+            }
+            
     }
 }
-

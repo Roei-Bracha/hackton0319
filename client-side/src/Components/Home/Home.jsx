@@ -19,23 +19,30 @@ class Home extends Component {
           'accept': 'application/json'
         },
         body: JSON.stringify({
-          query: `query{courses{approved course_id description start_date end_date start_hour end_hour is_one_time talmor_username max_participants min_participants previous_knowledge}}`
+          query: `query{courses{approved course_id description start_date end_date start_hour end_hour is_one_time photo_url talmor_username student{username userByUsername{first_name last_name}bio school{name}}max_participants min_participants previous_knowledge category location{name address description}}}`
         })
       }
       fetch(graphQLApi,getCoursesOption)
-      .then ((results)=>{
-        return results.json()
+      .then ((response)=>{
+        return response.json()
       })
-      .then((data)=>{
-        console.log(data)
+      .then((results)=>{
+        const {courses} = results.data
+        this.setState ({courses})
       }).catch((err)=>{
         console.error(err)
       })
     }
     render() {
+      const {courses} = this.state
       return (<div className='home'>
           <span>קורסים שאמורים להפתח בבית הספר שלך:</span>
-          <CoursePreview />
+           {courses ? courses.map((course)=>{
+            return <CoursePreview 
+              key={course.course_id}
+              course={course}/>
+          }): null}
+          
       </div> );
     }
   }
