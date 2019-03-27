@@ -14,7 +14,7 @@ import Teal from '@material-ui/core/colors/teal';
 import Purple from '@material-ui/core/colors/purple';
 import JssProvider from 'react-jss/lib/JssProvider';
 
-import Profile from './Components/Profile/Profile';
+import Profile from './Components/Profile/Profile.jsx';
 
 const store = configureStore()
 class App extends Component {
