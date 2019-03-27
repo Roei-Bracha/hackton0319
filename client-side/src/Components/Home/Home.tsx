@@ -7,7 +7,7 @@ class Home extends Component {
       return (<div>
           <span>בדיקה</span>
             <Paper>
-                
+                <span>מספר קורס:</span>
             </Paper>
       </div> );
     }
