@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import AppNavBar from './Components/AppNavBar/AppNavBar'
 import configureStore from './store/configureStore'
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import BottomBar from "./Components/BottomBar/BottomBar"
 import './App.scss';
 
 import Home from './Components/Home/Home'
@@ -21,7 +21,10 @@ class App extends Component {
               <AppNavBar/>
             </div>
             <div className='body'>
+              <div>
               <Route path='/' component={Home}></Route>
+              </div>
+              <BottomBar/>
             </div>
           </div>
         </Router>
