@@ -6,8 +6,13 @@
         flex-direction: column;
         direction: rtl;
         width:100%;
+        .courseLabel {
+            display: flex;
+            align-items: center;
+        }
         .smallFont {
             font-size: 10px;
+            display: flex;
         }
         .row {
             display: flex;

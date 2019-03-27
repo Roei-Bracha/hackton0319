@@ -22,14 +22,13 @@ class CoursePreview extends Component {
           <Paper className='coursePaper'>
               <div className='coursePreview'>
                 <div className='courseHeader'>
+                <div className='courseLabel'>
                   <span className='courseName'>{courseName}</span>
-                  <div>
-                    <div  className='smallFont'>
-                      <span>מספר קורס:</span><span>{this.state.coruseId}</span>
-                    </div>
-                    {isOpen ? <ExpandMoreIcon onClick={this.clickOpen} /> : <ExpandLessIcon  onClick={this.clickOpen}/>}
-                  </div>
-                 
+                  {/* <span className='smallFont'>{this.state.coruseId}</span> */}
+                </div>
+                  
+                
+                    {isOpen ? <ExpandMoreIcon onClick={this.clickOpen} /> : <ExpandLessIcon  onClick={this.clickOpen}/>}                 
                 </div>
                 <div className='row'>
                   
