@@ -15,7 +15,7 @@ function AppNavBar(props:Props){
         <AppBar className={"AppNavBar"}>
             <Toolbar className={"Toolbar"}>
                 <Typography variant="h6" color="inherit">
-                AppName
+                תלמור
                 </Typography>
                 {props.userId ? <UserAvatar/> : <Login/>}
             </Toolbar>
