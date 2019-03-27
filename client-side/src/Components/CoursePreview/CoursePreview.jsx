@@ -15,6 +15,7 @@ class CoursePreview extends Component {
         courseName: 'קורס פייתון'
       }
     }
+    componentDidMount
     clickOpen = ()=>this.setState((preState)=>({isOpen:!preState.isOpen})) 
     render() {
       const {coruseId,courseName,isOpen} = this.state
