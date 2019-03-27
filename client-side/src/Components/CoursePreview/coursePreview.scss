@@ -1,0 +1,21 @@
+.coursePaper {
+    display: flex;
+    width:80%;
+    .coursePreview {
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+        width:100%;
+        .smallFont {
+            font-size: 10px;
+        }
+        .row {
+            display: flex;
+        }
+        .courseHeader {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+

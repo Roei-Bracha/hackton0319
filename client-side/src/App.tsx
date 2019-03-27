@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import './App.scss';
 
-import Home from './Components/Home/Home'
+import Home from './Components/Home/Home.jsx'
 
 const store = configureStore()
 class App extends Component {
