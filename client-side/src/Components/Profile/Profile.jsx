@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography"
 import "./Profile.scss"
 import Skeleton from "react-loading-skeleton"
 import {graphQLApi} from '../../config'
+import { Avatar } from "@material-ui/core";
 
 
 class Profile extends React.Component{
@@ -50,13 +51,20 @@ class Profile extends React.Component{
                 <Paper className="Profile">
                     <Typography variant="h5" component="h3" >
                         {this.state.loading ?
-                        <Skeleton /> : <span>`${this.state.user.first_name} ${this.state.user.last_name}`</span>}
+                        <Skeleton /> : <span style={{display:"flex",alignItems:"center"}}><Avatar style={{margin:"5px",width:60,height:60}}src={this.state.user.photo_url}/> {this.state.user.first_name} {this.state.user.last_name} </span>}
                     </Typography>
                     <br/>
                     {this.state.loading ?
                         <p  > <Skeleton count={8} /> </p>:
                         <div>
+                        <Typography><b>קצת על עצמי:</b></Typography>
+                        <Typography>{this.state.user.bio}</Typography>
+                        <Typography><b>בית ספר: </b>{this.state.user.school.name}</Typography>
+                        <Typography><b> עיר: </b>{this.state.user.city}</Typography>
+                        <Typography><b> מספר טלפון: </b>{this.state.user.phone_number}</Typography>
+                        <Typography><b>אימייל: </b>{this.state.user.email}</Typography>
 
+                        
                         </div>
                     }
                 </Paper>
