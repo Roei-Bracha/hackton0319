@@ -43,7 +43,8 @@ class App extends Component {
             </div>
             <div className='body'>
               <div>
-              <Route path='/' component={Profile}></Route>
+              <Route path='/profile' component={Profile}></Route>
+              <Route path='/' component={Home}></Route>
               </div>
               <BottomBar/>
             </div>
