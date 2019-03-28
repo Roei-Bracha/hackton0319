@@ -19,7 +19,7 @@ class Home extends Component {
           'accept': 'application/json'
         },
         body: JSON.stringify({
-          query: `query{courses{approved name course_id description start_date end_date start_hour end_hour is_one_time photo_url talmor_username student{username userByUsername{first_name last_name}bio school{name}}max_participants min_participants previous_knowledge category location{name address description}}}`
+          query: `query{courses(where: { approved: { _eq: true } }) {approved name course_id description start_date end_date start_hour end_hour is_one_time photo_url talmor_username student{username userByUsername{first_name last_name}bio school{name}}max_participants min_participants previous_knowledge category location{name address description}}}`
         })
       }
       fetch(graphQLApi,getCoursesOption)
