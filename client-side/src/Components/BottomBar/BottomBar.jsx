@@ -24,9 +24,13 @@ class BottomBar extends React.Component{
                     <BottomNavigationAction label="אני מלמד" icon={<AccountCircle />} value={this.state.isTeacher ? "teacher/mystudents" : "iTeach"} />
                     <BottomNavigationAction label="חפש קורס" icon={<Search />} value={"search"} />
                     <BottomNavigationAction label="הקורסים שלי" icon={<School />} value={"myCourses"} />
+                    <BottomNavigationAction label={this.state.isTeacher ? "החלף לתלמיד" : "החלף למורה"} icon={<School />} value={ "search" } onClick={this.switchUserId()} />
                 </BottomNavigation>
             </div>
         )
+    }
+    switchUserId = () => {
+        this.state.isTeacher = !this.state.isTeacher
     }
 }
 const mapStateToProps = (state) => ({
