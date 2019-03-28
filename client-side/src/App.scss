@@ -22,6 +22,16 @@ html{
             height: 90%;
             justify-content: space-between;
             padding-top: 3px;
+            .RouterDiv{
+                padding-bottom: 55px;
+            }
+            .bottomBar{
+                border-top:solid black thin;
+                bottom: 0;
+                position: fixed;
+                z-index: 3;
+                width:100%
+            }
         }
     }
 }

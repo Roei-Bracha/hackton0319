@@ -35,14 +35,13 @@ class App extends Component {
               <AppNavBar/>
             </div>
             <div className='body'>
-              <div>
+              <div className="RouterDiv">
               <Route path='/' exact component={Home}></Route>
               <Route path='/search' exact component={Home}></Route>
               <Route path='/profile/:username' component={Profile}></Route>
               <Route path='/createcourse' component={CreateCourseForm}></Route>
               <Route path='/iteach' component={CourseITeach}></Route>
               <Route path='/myCourses' component={MyCourse}></Route>
-
               </div>
               <BottomBar/>
             </div>
