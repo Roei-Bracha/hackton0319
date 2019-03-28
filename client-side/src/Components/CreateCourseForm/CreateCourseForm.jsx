@@ -5,7 +5,7 @@ import {connect} from "react-redux"
 import { TextField } from '@material-ui/core';
 import {graphQLApi} from '../../config'
 import { Save } from '@material-ui/icons';
-
+import moment from "moment"
 
 class CreateCourseForm extends Component {
     constructor(props){
@@ -43,6 +43,29 @@ class CreateCourseForm extends Component {
             console.error(err)
           })
         }
+        sendToServer = (e)=>{
+            e.preventDefault()
+            console.log(this.state)
+            const options = {
+                method:'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    query: `mutation{insert_courses(objects:{category: "${this.state.category}",description: "${this.state.description}",end_date: "${this.state.end_date}",start_date: "${this.state.start_date}",is_one_time: true,max_participants: 10,location_id:"2e681815-d21d-471f-89c2-d4e389e24097",approved:true,talmor_username:"${this.props.talmor_username}",name:"${this.state.name}",photo_url:"aaaaa",start_hour:"${this.state.start_hour}:00",end_hour:"${this.state.end_hour}:00"}){affected_rows}}`
+                })
+                }
+                fetch(graphQLApi,options)
+              .then ((results)=>{
+                return results.json()
+              })
+              .then((data)=>{
+                console.log(data)
+              }).catch((err)=>{
+                console.error(err)
+              })
+        }
     render () {
         return (
             <div className="CreateCourseForm">
@@ -61,7 +84,7 @@ class CreateCourseForm extends Component {
                     </Select>
 
                     <div className={"ButtonDiv"}>
-                        <Button variant="contained" color="primary">שמור  <Save/></Button>
+                        <Button variant="contained" color="primary" onClick={this.sendToServer} >שמור  <Save/></Button>
                     </div>
                 </form>
             </div>
