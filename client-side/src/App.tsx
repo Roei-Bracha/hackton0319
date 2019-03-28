@@ -6,12 +6,10 @@ import configureStore from './store/configureStore'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import BottomBar from "./Components/BottomBar/BottomBar"
 import './App.scss';
-import {createMuiTheme,} from '@material-ui/core'
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 import { createGenerateClassName, jssPreset , MuiThemeProvider } from '@material-ui/core/styles';
-import Teal from '@material-ui/core/colors/teal';
-import Purple from '@material-ui/core/colors/purple';
+import {theme} from './config'
 import JssProvider from 'react-jss/lib/JssProvider';
 
 
@@ -25,13 +23,6 @@ class App extends Component {
   render() {
     const jss = create({ plugins: this.plugin });
     const generateClassName = createGenerateClassName();
-    const theme = createMuiTheme({
-      direction:"rtl",
-      palette: {
-        primary: Teal,
-        secondary: Purple
-      },
-    })
     return (
       <Provider store={store}>
         <JssProvider jss={jss} generateClassName={generateClassName}>
