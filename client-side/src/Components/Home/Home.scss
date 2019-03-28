@@ -1,5 +1,10 @@
-.home {
+.homeWithFilter {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    .home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
+

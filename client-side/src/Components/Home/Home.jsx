@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CoursePreview from '../CoursePreview/CoursePreview.jsx' 
 import {graphQLApi} from '../../config'
+import Filter from '../filter/Filter.jsx'
 
 import  './Home.scss'
 
@@ -35,7 +36,10 @@ class Home extends Component {
     }
     render() {
       const {courses} = this.state
-      return (<div className='home'>
+      return (
+      <div className='homeWithFilter'>
+        <Filter />
+        <div className='home'>
           <span>קורסים שאמורים להפתח בבית הספר שלך:</span>
            {courses ? courses.map((course)=>{
             return <CoursePreview 
@@ -44,7 +48,9 @@ class Home extends Component {
               isSigned={false}/>
           }): null}
           
-      </div> );
+        </div>
+      </div>
+         );
     }
   }
 
