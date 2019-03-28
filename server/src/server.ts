@@ -1,11 +1,19 @@
 // const express = require("express");
 import express , {Request,Response} from 'express';
 import * as bodyParser from 'body-parser';
+<<<<<<< HEAD
 import path from "path"
 // import  { ApolloServer } from 'apollo-server-express';
 // import typeDefs from './graphql/typeDefs'
 // import resolvers from './graphql/resolvers'
 // import {authCheck,signup} from './controllers/auth'
+=======
+import  { ApolloServer } from 'apollo-server-express';
+import typeDefs from './graphql/typeDefs'
+import resolvers from './graphql/resolvers'
+import {authCheck,signup} from './controllers/auth'
+import path from "path"
+>>>>>>> 3855ed78850ecdf5e165cc65ab1ddef673ef1023
 //config
 const app = express ();
 // const server = new ApolloServer({ typeDefs, resolvers });
