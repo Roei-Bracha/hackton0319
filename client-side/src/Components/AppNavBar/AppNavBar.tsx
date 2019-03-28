@@ -7,14 +7,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {connect} from 'react-redux'
 import { store } from '../../store/configureStore';
-
+import {changeUserName} from '../../action/main'
 type Props = StateProps // & DispatchProps & OwnProps 
 
 function AppNavBar(props:Props){
+    console.log(props)
     return (
         <AppBar style={{position:"relative"}} className={"AppNavBar"}>
             <Toolbar className={"Toolbar"}>
-                <Typography variant="h6" color="inherit">
+                <Typography variant="h6" color="inherit" onClick={props.userId==='harry' ? ()=>props.dispatch(changeUserName('dumbled')): ()=>props.dispatch(changeUserName('harry'))}>
                 תלמור
                 </Typography>
                 {props.userId ? <UserAvatar/> : <Login/>}
@@ -24,10 +25,11 @@ function AppNavBar(props:Props){
 }
 
 interface StateProps {
-    userId: string | null
+    userId: string | null,
+    dispatch : Function
 }
 
-const mapStateToProps = (state:store) : StateProps => ({
+const mapStateToProps = (state:store)  => ({
     userId:state.main.userId
 })
 

@@ -17,6 +17,7 @@ import Home from './Components/Home/Home.jsx'
 import Profile from './Components/Profile/Profile';
 import CreateCourseForm from './Components/CreateCourseForm/CreateCourseForm';
 import CourseITeach from './Components/CourseITeach/CourseITeach';
+import CoursesMyStudentsTeach from './Components/CoursesMyStudentsTeach/CoursesMyStudentsTeach';
 
 const store = configureStore()
 class App extends Component {
@@ -35,14 +36,15 @@ class App extends Component {
               <AppNavBar/>
             </div>
             <div className='body'>
-              <div className="RouterDiv">
-              <Route path='/' exact component={Home}></Route>
-              <Route path='/search' exact component={Home}></Route>
-              <Route path='/profile/:username' component={Profile}></Route>
-              <Route path='/createcourse' component={CreateCourseForm}></Route>
-              <Route path='/iteach' component={CourseITeach}></Route>
-              <Route path='/myCourses' component={MyCourse}></Route>
-              </div>
+
+                <Route path='/' exact component={Home}> </Route>
+                <Route path='/search' exact component={Home}> </Route>
+                <Route path='/profile/:username' component={Profile}> </Route>
+                <Route path='/createcourse' component={CreateCourseForm} > </Route>
+                <Route path='/iteach' component={CourseITeach}> </Route>
+                <Route path='/myCourses' component={MyCourse}> </Route>
+                <Route path='/teacher/mystudents' component={CoursesMyStudentsTeach} />
+
               <BottomBar/>
             </div>
           </div>
