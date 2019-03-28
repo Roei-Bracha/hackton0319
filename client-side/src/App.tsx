@@ -11,7 +11,7 @@ import rtl from 'jss-rtl';
 import { createGenerateClassName, jssPreset , MuiThemeProvider } from '@material-ui/core/styles';
 import {theme} from './config'
 import JssProvider from 'react-jss/lib/JssProvider';
-
+import MyCourse from './Components/myCourses/MyCourses'
 
 import Home from './Components/Home/Home.jsx'
 import Profile from './Components/Profile/Profile';
@@ -41,6 +41,8 @@ class App extends Component {
               <Route path='/profile/:username' component={Profile}></Route>
               <Route path='/createcourse' component={CreateCourseForm}></Route>
               <Route path='/iteach' component={CourseITeach}></Route>
+              <Route path='/myCourses' component={MyCourse}></Route>
+
               </div>
               <BottomBar/>
             </div>

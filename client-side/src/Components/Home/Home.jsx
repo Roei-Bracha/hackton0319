@@ -40,7 +40,8 @@ class Home extends Component {
            {courses ? courses.map((course)=>{
             return <CoursePreview 
               key={course.course_id}
-              course={course}/>
+              course={course}
+              isSigned={false}/>
           }): null}
           
       </div> );
