@@ -1,27 +1,21 @@
 // const express = require("express");
 import express , {Request,Response} from 'express';
 import * as bodyParser from 'body-parser';
-<<<<<<< HEAD
-import  { ApolloServer } from 'apollo-server-express';
-import typeDefs from './graphql/typeDefs'
-import resolvers from './graphql/resolvers'
-import {authCheck,signup} from './controllers/auth'
 import path from "path"
-=======
 // import  { ApolloServer } from 'apollo-server-express';
 // import typeDefs from './graphql/typeDefs'
 // import resolvers from './graphql/resolvers'
 // import {authCheck,signup} from './controllers/auth'
->>>>>>> coursesList
 //config
 const app = express ();
 // const server = new ApolloServer({ typeDefs, resolvers });
 
 //Middleware
-app.use(bodyParser.json());
-app.use(express.static(__dirname+'/public'))
+app.use(express.static('build'));
 
-app.use(express.static(path.join(__dirname +'public')))
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 //Routes
 // app.post('/login',authCheck)
