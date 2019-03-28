@@ -5,6 +5,11 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Button from '@material-ui/core/Button';
 import {School} from "@material-ui/icons"
 import {connect} from 'react-redux'
+import {graphQLApi} from '../../config'
+import Snackbar from '@material-ui/core/Snackbar'
+import { withStyles } from '@material-ui/core/styles';
+
+
 
 import moment from 'moment'
 
@@ -25,10 +30,27 @@ class CoursePreview extends Component {
       e.stopPropagation();
       console.log(course_id)
       console.log(this.props.username)
+      const registerOptions = {
+        method:'POST',
+        headers: {
+          'content-type': 'application/json',
+          'accept': 'application/json'
+        },
+        body: JSON.stringify({
+          query:`mutation{insert_registrations(objects:{course_id:"${course_id}",has_completed:false,talmor_id:"${this.props.username}"}){affected_rows}}`
+        })
+      }
+      
+      fetch(graphQLApi,registerOptions)
+      .then((response)=>response.json())
+      .then(()=>{this.setState({openSuccesReg : true})
+              alert('נרשמת בהצלחה!')
+    })
     }
     clickOpen = ()=>this.setState((preState)=>({isOpen:!preState.isOpen})) 
+    handleCloseSuccesReg = ()=>{this.setState({openSuccesReg : false})}
     render() {
-      const {isOpen} = this.state
+      const {isOpen,openSuccesReg} = this.state
       const {approved,
         course_id,
         description,
@@ -89,6 +111,15 @@ class CoursePreview extends Component {
                   </div>
                 </div> :null
                   }
+                  {/* <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          open={openSuccesReg}
+          autoHideDuration={6000}
+          onClose={this.handleCloseSuccesReg}
+        ></Snackbar> */}
               </div>
             </Paper>
             

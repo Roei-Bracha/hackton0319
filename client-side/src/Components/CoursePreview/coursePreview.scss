@@ -10,6 +10,7 @@
         .courseLabel {
             display: flex;
             align-items: center;
+            margin-right:7px;
         }
         .row {
             display: flex;
@@ -28,7 +29,7 @@
             display: flex;
             flex-direction: row-reverse;
             .joinButton {
-                margin: 1% 3%;
+                margin: 0.5% 2%;
                 display: flex;
                 .MuiButton-label-78 {
                     display: flex;
@@ -47,12 +48,13 @@
             justify-content: space-between;
             align-items: center;
             justify-content: center;
+            height: 6vh;
             .coursePhotoWrap {
                 width:90%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height:8vh;
+                height:6vh;
                 .coursePhoto {
                     height: 100%;
                     width: auto;
