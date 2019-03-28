@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 import {graphQLApi} from '../../config'
 import Snackbar from '@material-ui/core/Snackbar'
 import { withStyles } from '@material-ui/core/styles';
-
+import {Redirect} from 'react-router'
 
 
 import moment from 'moment'
@@ -23,7 +23,7 @@ class CoursePreview extends Component {
       super(props)
       this.state = {
         isOpen:false,
-        
+        isRemoved : false
       }
       
     }
@@ -50,8 +50,6 @@ class CoursePreview extends Component {
     }
     unSignToCourse = (e,course_id)=>{
       e.stopPropagation();
-      console.log(course_id)
-      console.log(this.props.username)
       const registerOptions = {
         method:'POST',
         headers: {
@@ -61,18 +59,19 @@ class CoursePreview extends Component {
         body: JSON.stringify({
           query:`mutation{delete_registrations(where:{_and:{talmor_id:{_eq:"${this.props.username}"},course_id:{_eq:"${course_id}"}}}){affected_rows}}`
         })
+
       }
       
       fetch(graphQLApi,registerOptions)
       .then((response)=>response.json())
-      .then(()=>{this.setState({openSuccesReg : true})
+      .then(()=>{this.setState({openSuccesReg : true,isRemoved:true})
               alert('ביטול ההשתתפות נרשם במערכת')
     })
     }
     clickOpen = ()=>this.setState((preState)=>({isOpen:!preState.isOpen})) 
     handleCloseSuccesReg = ()=>{this.setState({openSuccesReg : false})}
     render() {
-      const {isOpen,openSuccesReg} = this.state
+      const {isOpen,openSuccesReg,isRemoved} = this.state
       const {approved,
         course_id,
         description,
@@ -133,8 +132,10 @@ class CoursePreview extends Component {
                     <span> הצטרף לקורס</span> 
                     <School style={{marginRight:'8px'}} />
                   </Button>
+                  
                 }
                   </div>
+                  {isRemoved? <Redirect to='/search' push/> : null}
                   <div className='row'>
                   </div>
                 </div> :null
