@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Button from '@material-ui/core/Button';
 import {School} from "@material-ui/icons"
+import {connect} from 'react-redux'
 
 import moment from 'moment'
 
@@ -20,9 +21,10 @@ class CoursePreview extends Component {
       }
       
     }
-    joinToCourse = (e)=>{
+    joinToCourse = (e,course_id)=>{
       e.stopPropagation();
-      console.log(e)
+      console.log(course_id)
+      console.log(this.props.username)
     }
     clickOpen = ()=>this.setState((preState)=>({isOpen:!preState.isOpen})) 
     render() {
@@ -78,7 +80,7 @@ class CoursePreview extends Component {
                   <span className='rowLabel'>ידע קודם דרוש:</span><span>{previous_knowledge}</span> 
                   </div>
                   <div className='footer'>
-                  <Button variant="contained" color="primary" className='joinButton' onClick={this.joinToCourse}>
+                  <Button variant="contained" color="primary" className='joinButton' onClick={(e)=>this.joinToCourse(e,course_id)}>
                     <span> הצטרף לקורס</span> 
                     <School style={{marginRight:'8px'}} />
                   </Button>
@@ -93,7 +95,9 @@ class CoursePreview extends Component {
        );
     }
   }
+  const mapStateToProps = (state) => ({
+    username:state.main.userId
+})
 
 
-
-  export default CoursePreview;
+export default connect(mapStateToProps)(CoursePreview)
