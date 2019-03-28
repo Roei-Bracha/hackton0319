@@ -14,11 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-<<<<<<< HEAD
-  "/precache-manifest.4757699ff4162e72481518d1e951b591.js"
-=======
   "/precache-manifest.ddf7c98dccb92ae25f0a0dbcbdb33f6c.js"
->>>>>>> coursesList
 );
 
 workbox.clientsClaim();

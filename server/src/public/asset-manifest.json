@@ -1,25 +1,13 @@
 {
-<<<<<<< HEAD
-  "main.css": "/static/css/main.84a56698.chunk.css",
-  "main.js": "/static/js/main.803cd4f8.chunk.js",
-  "main.js.map": "/static/js/main.803cd4f8.chunk.js.map",
-=======
   "main.css": "/static/css/main.78f06f82.chunk.css",
   "main.js": "/static/js/main.021f0087.chunk.js",
   "main.js.map": "/static/js/main.021f0087.chunk.js.map",
->>>>>>> coursesList
   "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
   "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
   "static/js/2.ec7821dd.chunk.js": "/static/js/2.ec7821dd.chunk.js",
   "static/js/2.ec7821dd.chunk.js.map": "/static/js/2.ec7821dd.chunk.js.map",
   "index.html": "/index.html",
-<<<<<<< HEAD
-  "precache-manifest.4757699ff4162e72481518d1e951b591.js": "/precache-manifest.4757699ff4162e72481518d1e951b591.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/main.84a56698.chunk.css.map": "/static/css/main.84a56698.chunk.css.map"
-=======
   "precache-manifest.ddf7c98dccb92ae25f0a0dbcbdb33f6c.js": "/precache-manifest.ddf7c98dccb92ae25f0a0dbcbdb33f6c.js",
   "service-worker.js": "/service-worker.js",
   "static/css/main.78f06f82.chunk.css.map": "/static/css/main.78f06f82.chunk.css.map"
->>>>>>> coursesList
 }
