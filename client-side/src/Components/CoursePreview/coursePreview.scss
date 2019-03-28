@@ -11,19 +11,42 @@
             display: flex;
             align-items: center;
         }
-        .smallFont {
-            font-size: 10px;
-            display: flex;
-        }
         .row {
             display: flex;
             z-index:1;
+            // justify-content: space-between;
+            margin:1% 4% 1% 4%;
+            .rowLabel {
+                font-weight: bold;
+                white-space: nowrap;
+                margin-left: 10%;
+                width:20%;
+               
+            }
+        }
+        .footer {
+            display: flex;
+            flex-direction: row-reverse;
+            .joinButton {
+                margin: 1% 3%;
+                display: flex;
+                .MuiButton-label-78 {
+                    display: flex;
+                    justify-content: space-between;
+                    width:100%;
+                }
+            }
+        }
+        
+        .courseLabel {
+            font-size:115%;
+            font-weight: bold;
         }
         .courseHeader {
             display: flex;
             justify-content: space-between;
             align-items: center;
-                justify-content: center;
+            justify-content: center;
             .coursePhotoWrap {
                 width:90%;
                 display: flex;
