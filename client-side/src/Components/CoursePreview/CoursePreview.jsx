@@ -47,6 +47,27 @@ class CoursePreview extends Component {
               alert('נרשמת בהצלחה!')
     })
     }
+    unSignToCourse = (e,course_id)=>{
+      e.stopPropagation();
+      console.log(course_id)
+      console.log(this.props.username)
+      const registerOptions = {
+        method:'POST',
+        headers: {
+          'content-type': 'application/json',
+          'accept': 'application/json'
+        },
+        body: JSON.stringify({
+          query:`mutation{delete_registrations(where:{_and:{talmor_id:{_eq:"${this.props.username}"},course_id:{_eq:"${course_id}"}}}){affected_rows}}`
+        })
+      }
+      
+      fetch(graphQLApi,registerOptions)
+      .then((response)=>response.json())
+      .then(()=>{this.setState({openSuccesReg : true})
+              alert('ביטול ההשתתפות נרשם במערכת')
+    })
+    }
     clickOpen = ()=>this.setState((preState)=>({isOpen:!preState.isOpen})) 
     handleCloseSuccesReg = ()=>{this.setState({openSuccesReg : false})}
     render() {
@@ -68,6 +89,7 @@ class CoursePreview extends Component {
         location,
         student,
         previous_knowledge} = this.props.course
+      const {isSigned} = this.props
       return (
           <Paper className='coursePaper' onClick={this.clickOpen}>
               <div className='coursePreview'>
@@ -102,10 +124,15 @@ class CoursePreview extends Component {
                   <span className='rowLabel'>ידע קודם דרוש:</span><span>{previous_knowledge}</span> 
                   </div>
                   <div className='footer'>
-                  <Button variant="contained" color="primary" className='joinButton' onClick={(e)=>this.joinToCourse(e,course_id)}>
+                  {isSigned ? 
+                    <Button variant="contained" color="secondary" className='joinButton' onClick={(e)=>this.unSignToCourse(e,course_id)}>
+                    <span> בטל השתתפות בקורס</span> 
+                    <School style={{marginRight:'8px'}} />
+                  </Button> :<Button variant="contained" color="primary" className='joinButton' onClick={(e)=>this.joinToCourse(e,course_id)}>
                     <span> הצטרף לקורס</span> 
                     <School style={{marginRight:'8px'}} />
                   </Button>
+                }
                   </div>
                   <div className='row'>
                   </div>
