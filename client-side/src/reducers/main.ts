@@ -3,7 +3,7 @@ export interface mainReducerState {
 }
 
 const mainReducerDefultState : mainReducerState = {
-    userId:"harry"
+    userId:"dumbled"
 }
 
 export default (state = mainReducerDefultState , action:any) :mainReducerState=>{
