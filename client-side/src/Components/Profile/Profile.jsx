@@ -28,7 +28,7 @@ class Profile extends React.Component{
             'accept': 'application/json'
         },
         body: JSON.stringify({
-            query: `query{users(where:{username:{_eq:"${this.props.username}"}}){first_name last_name email phone_number phone_number photo_url school{name city}}students(where:{username:{_eq:"${this.props.username}"}}){city interests{category_name}bio}}`
+            query: `query{users(where:{username:{_eq:"${this.props.match.params.username}"}}){first_name last_name email phone_number phone_number photo_url school{name city}}students(where:{username:{_eq:"${this.props.match.params.username}"}}){city interests{category_name}bio}}`
         })
         }
         fetch(graphQLApi,options)
@@ -45,7 +45,7 @@ class Profile extends React.Component{
       })
     }
     render(){
-        console.log(this.state)
+        console.log(this.props)
         return(
             <div>
                 <Paper className="Profile">
@@ -73,8 +73,6 @@ class Profile extends React.Component{
     }
 }
 
-Profile.defaultProps={
-    username:"harry"
-}
+
 
 export default Profile

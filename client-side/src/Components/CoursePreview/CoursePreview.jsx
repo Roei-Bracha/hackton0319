@@ -11,6 +11,7 @@ import moment from 'moment'
 import {theme} from '../../config'
 
 import "./coursePreview.scss";
+import { Link } from 'react-router-dom';
 
 class CoursePreview extends Component {
     constructor (props) {
@@ -65,7 +66,7 @@ class CoursePreview extends Component {
                   <span className='rowLabel'>מיקום:</span><span>{location.name}</span>
                 </div>
                 <div className='row'>
-                  <span className='rowLabel'>מורה:</span><span>{`${student.userByUsername.first_name} ${student.userByUsername.last_name}`}</span>
+                  <span className='rowLabel'>מורה:</span><Link push to={`/profile/${student.username}`}><span>{`${student.userByUsername.first_name} ${student.userByUsername.last_name}`}</span></Link>
                 </div>
                 {isOpen ? 
                 <div>

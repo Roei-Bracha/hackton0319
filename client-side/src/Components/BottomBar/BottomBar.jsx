@@ -17,7 +17,7 @@ export default class BottomBar extends React.Component{
     render(){
         return(
             <div>
-                {this.state.redirect && <Redirect to={`/${this.state.value}`}/>}
+                {this.state.redirect && <Redirect push to={`/${this.state.value}`}/>}
                 <BottomNavigation value={this.state.value} onChange={this.changeMode} showLabels>
                     <BottomNavigationAction label="אני מלמד" icon={<AccountCircle />} value={"iTeach"} />
                     <BottomNavigationAction label="חפש קורס" icon={<Search />} value={"search"} />
