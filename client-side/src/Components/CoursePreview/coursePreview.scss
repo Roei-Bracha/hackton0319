@@ -1,4 +1,5 @@
 .coursePaper {
+    z-index:2;
     display: flex;
     flex-direction: column;
     width:90%;
@@ -15,7 +16,6 @@
         }
         .row {
             display: flex;
-            z-index:1;
             // justify-content: space-between;
             margin:1% 4% 1% 4%;
             .rowLabel {
