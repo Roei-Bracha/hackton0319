@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import CoursePreview from '../CoursePreview/CoursePreview.jsx' 
 import {graphQLApi} from '../../config'
+import Filter from '../filter/Filter.jsx'
 
+import { FilterList } from '@material-ui/icons';
 import  './Home.scss'
 
 class Home extends Component {
     constructor (props) {
       super(props)
       this.state = {
-
+        isFilterOpen: false
       }
     }
     componentDidMount = ()=>{
@@ -33,18 +35,38 @@ class Home extends Component {
         console.error(err)
       })
     }
+    changeCategoryFilter = (categoryFilter)=>{
+      console.log(categoryFilter)
+      this.setState ({
+        categoryFilter
+      })
+    }
+    changeFilterOpen = ()=>{
+      this.setState((preState)=>({
+        isFilterOpen:!preState.isFilterOpen
+      }))
+    }
     render() {
-      const {courses} = this.state
-      return (<div className='home'>
+      const {courses,categoryFilter,isFilterOpen} = this.state
+      return (
+      <div className='homeWithFilter'>
+        {isFilterOpen ?<Filter changeCategory={this.changeCategoryFilter} onClick={this.changeFilterOpen}/>: <FilterList onClick={this.changeFilterOpen}/>}
+        <div className='home'>
           <span>קורסים שאמורים להפתח בבית הספר שלך:</span>
-           {courses ? courses.map((course)=>{
+           {courses ? courses
+           .filter((course)=>{
+            return !categoryFilter||course.category ===categoryFilter
+           })
+           .map((course)=>{
             return <CoursePreview 
               key={course.course_id}
               course={course}
               isSigned={false}/>
           }): null}
           
-      </div> );
+        </div>
+      </div>
+         );
     }
   }
 

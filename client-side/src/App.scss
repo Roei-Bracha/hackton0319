@@ -6,11 +6,13 @@ html{
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     .allPage {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         .header {
             display:flex;
             height: 10%;
@@ -18,10 +20,21 @@ html{
         .body {
             display: flex;
             flex-direction: column;
-            width: 100%;
+            align-self: center;
+            width: 90%;
             height: 90%;
             justify-content: space-between;
             padding-top: 3px;
+            .RouterDiv{
+                padding-bottom: 55px;
+            }
+            .bottomBar{
+                border-top:solid black thin;
+                bottom: 0;
+                position: fixed;
+                z-index: 3;
+                width:100%
+            }
         }
     }
 }

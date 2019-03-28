@@ -3,6 +3,7 @@ import {graphQLApi} from '../../config'
 import CoursePreview from '../CoursePreview/CoursePreview.jsx' 
 import {connect} from 'react-redux'
 
+import './myCourses.scss'
 
 
 class MyCourse extends Component {

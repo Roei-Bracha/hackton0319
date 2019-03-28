@@ -18,7 +18,7 @@ class BottomBar extends React.Component{
     }
     render(){
         return(
-            <div>
+            <div className="bottomBar">
                 {this.state.redirect && <Redirect push to={`/${this.state.value}`}/>}
                 <BottomNavigation value={this.state.value} onChange={this.changeMode} showLabels>
                     <BottomNavigationAction label="אני מלמד" icon={<AccountCircle />} value={this.state.isTeacher ? "teacher/mystudents" : "iTeach"} />

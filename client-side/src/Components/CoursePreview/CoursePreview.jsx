@@ -10,7 +10,6 @@ import Snackbar from '@material-ui/core/Snackbar'
 import { withStyles } from '@material-ui/core/styles';
 import {Redirect} from 'react-router'
 
-
 import moment from 'moment'
 
 import {theme} from '../../config'
@@ -92,6 +91,7 @@ class CoursePreview extends Component {
       const {isSigned} = this.props
       return (
           <Paper className='coursePaper' onClick={this.clickOpen}>
+            
               <div className='coursePreview'>
                 <div className='courseHeader' style={{backgroundColor:theme.palette.primary[200]}}>
                   <div className='coursePhotoWrap'>
