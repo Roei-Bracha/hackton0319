@@ -1,11 +1,10 @@
 .filter {
     z-index: 3;
-    width:20%;
-    word-break: break-all;
-    // position: sticky;
+    width:40%;
+    // word-break: break-all;
+    position: absolute;
     // position: -webkit-sticky;
-    // left: 0;
-    // top:0;
+    right: 7%;
     .filterContent {
         display: flex;
         flex-direction: column;
@@ -13,7 +12,7 @@
             display: flex;
             flex-direction: row;
             .rowInput {
-                width:50%;
+                // width:50%;
             }
         }
     }

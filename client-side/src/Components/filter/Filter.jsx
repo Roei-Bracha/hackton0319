@@ -42,14 +42,16 @@ class Filter extends Component {
           console.error(err)
         })
       }
+    
     render() {
         const {categories} = this.state
+        const {changeCategory} = this.props
         return (
             <div className='filter'>
                 <Paper>
                     <div className='filterContent'>
                         <div className='row'>
-                            <span className='rowLabel'>קטגוריה:</span><select>{categories.map((category)=><option value={category.category_name}>{category.category_name}</option>)}</select><input className='rowInput'></input> 
+                            <span className='rowLabel'>קטגוריה:</span><select onChange={(e)=>changeCategory(e.target.value)}>{categories.map((category)=><option key={category.category_name} value={category.category_name}>{category.category_name}</option>)}</select> 
                         </div>
                     </div>
                     {/* <div className='courseLabel'>
