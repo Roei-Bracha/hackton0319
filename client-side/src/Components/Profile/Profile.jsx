@@ -74,7 +74,7 @@ class Profile extends React.Component{
 }
 
 Profile.defaultProps={
-    username:"yanire"
+    username:"harry"
 }
 
 export default Profile

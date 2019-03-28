@@ -17,6 +17,7 @@ import JssProvider from 'react-jss/lib/JssProvider';
 
 import Home from './Components/Home/Home.jsx'
 import Profile from './Components/Profile/Profile';
+import CreateCourseForm from './Components/CreateCourseForm/CreateCourseForm';
 
 const store = configureStore()
 class App extends Component {
@@ -43,8 +44,9 @@ class App extends Component {
             </div>
             <div className='body'>
               <div>
+              <Route path='/' exact component={Home}></Route>
               <Route path='/profile' component={Profile}></Route>
-              <Route path='/' component={Home}></Route>
+              <Route path='/createcourse' component={CreateCourseForm}></Route>
               </div>
               <BottomBar/>
             </div>
